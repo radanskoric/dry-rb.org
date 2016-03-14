@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta content="phone" media="(max-width: 480px)" name="breakpoint" /><title>Introduction</title><link href="/assets/stylesheets/site-2078d8b7.css" rel="stylesheet" /><style type="text/css">.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}</style><script src="/assets/javascripts/retina.min-4534879a.js"></script><script src="/assets/javascripts/site-0d519fe1.js" async="true"></script></head><body><header><div class="content-wrap"><nav class="main-nav"><ul class="main-nav__list"><li class="main-nav__logo"><a href="/">dry-rb</a></li><li><a href="/gems">Gems</a></li><li><a href="http://github.com/dry-rb">GitHub</a></li></ul></nav><div class="intro-page"><h1>Introduction</h1></div></div></header><div class="row"><div class="content-wrap"><aside class="sidebar"><ul><li><h2>dry-types</h2><ul><li><a class="active" href="/gems/dry-types/">Introduction</a><li><a class="" href="/gems/dry-types/including-types/">Including Types</a></li><li><a class="" href="/gems/dry-types/built-in-types/">Built-in Types</a></li><li><a class="" href="/gems/dry-types/strict/">Strict</a></li><li><a class="" href="/gems/dry-types/optional-values/">Optional Values</a></li><li><a class="" href="/gems/dry-types/default-values/">Default Values</a></li><li><a class="" href="/gems/dry-types/sum/">Sum</a></li><li><a class="" href="/gems/dry-types/constraints/">Constraints</a></li><li><a class="" href="/gems/dry-types/hash-schemas/">Hash Schemas</a></li><li><a class="" href="/gems/dry-types/array-with-member/">Array With Member</a></li><li><a class="" href="/gems/dry-types/enum/">Enum</a></li><li><a class="" href="/gems/dry-types/struct-and-value/">Struct & Value</a></li></li></ul></li></ul></aside><article class="gem-article"><p><code>dry-types</code> is a simple and extendible type system for Ruby useful for value coercions, applying constraints, defining complex structs or value objects and more. It was created as a virtus&rsquo; successor.</p>
+
+<h3 id="dry-types-vs-virtus">dry-types vs virtus</h3>
+
+<p><a href="https://github.com/solnic/virtus">Virtus</a> has been a successful library, unfortunately it is &ldquo;only&rdquo; a by-product of an ActiveRecord ORM which carries many issues typical to ActiveRecord-like features that we all know from Rails, especially when it comes to very complicated coercion logic, mixing unrelated concerns, polluting application layer with concerns that should be handled at the bounderies etc.</p>
+
+<p><code>dry-types</code> has been created to become a better tool that solves <em>similar</em> (but not identical!) problems related to type-safety and coercions. It is a superior solution because:</p>
+
+<ul>
+<li>Types are <a href="/gems/dry-types/built-in-types">categorized</a>, which is especially important for coercions</li>
+<li>Types are objects and they are easily reusable</li>
+<li>Has <a href="/gems/dry-types/structs-and-values">structs and values</a> with <em>a simple DSL</em></li>
+<li>Has <a href="/gems/dry-types/constraints">constrained types</a></li>
+<li>Has <a href="/gems/dry-types/optional-values">optional values</a></li>
+<li>Has <a href="/gems/dry-types/default-values">default values</a></li>
+<li>Has <a href="/gems/dry-types/sum">sum types</a></li>
+<li>Has <a href="/gems/dry-types/enum">enums</a></li>
+<li>Has <a href="/gems/dry-types/hash-schemas">hash type with type schemas</a></li>
+<li>Has <a href="/gems/dry-types/array-with-member">array type with members</a></li>
+<li>Suitable for many use-cases while remaining simple, in example:
+
+<ul>
+<li>Params coercions</li>
+<li>Domain &ldquo;models&rdquo;</li>
+<li>Defining various domain-specific, shared information using enums or values</li>
+<li>Annotating objects</li>
+<li>and more&hellip;</li>
+</ul></li>
+<li>There&rsquo;s no const-missing magic and complicated const lookups like in Virtus</li>
+<li>AND is roughly 10-12x faster than Virtus</li>
+</ul>
+
+<h2 id="rails">Rails</h2>
+
+<p>If you&rsquo;re using Rails then you want to install <a href="https://github.com/jeromegn/dry-types-rails">dry-types-rails</a> which makes it work in development mode.</p>
+</article></div></div><footer><div class="content-wrap"><div class="footer__credits">dry-rb is maintained by&nbsp;<a href="http://solnic.eu">@solnic</a>&nbsp;and&nbsp;<a href="https://github.com/AMHOL">@AMHOL</a>. This website was made by<a href="http://twitter.com/icelab">@icelab</a>. Tweet your questions and suggestions to&nbsp;<a href="http://twitter.com/dry_rb">@dry_rb</a> and follow us for updates.</div><a class="btn-social" href="https://github.com/dry-rb">GitHub</a><a class="btn-social" href="https://twitter.com/dry_rb">Twitter</a></div></footer></body></html>

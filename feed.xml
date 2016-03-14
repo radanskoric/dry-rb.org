@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.url.com/news/2014/03/14/example-article/"/>
     <id>http://blog.url.com/news/2014/03/14/example-article/</id>
     <published>2014-03-14T01:00:00+01:00</published>
-    <updated>2016-02-23T14:33:23+01:00</updated>
+    <updated>2016-03-14T16:29:25+01:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -27,7 +27,7 @@
 &lt;h3 id="heading-three"&gt;Heading three&lt;/h3&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;It was born out of frustration at the state of third-party libraries available in the Ruby ecosystem, namely their tendency to be written in the typical “idiomatic” Ruby way. For these reasons libraries belonging to the dryrb organisation try to follow a few basic principles.&lt;/p&gt;
+&lt;p&gt;It was born out of frustration at the state of third-party libraries available in the Ruby ecosystem, namely their tendency to be written in the typical “idiomatic” Ruby way. For these reasons libraries belonging to the dry-rb organisation try to follow a few basic principles.&lt;/p&gt;
 
 &lt;p&gt;—Author&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -44,7 +44,7 @@
     <link rel="alternate" href="http://blog.url.com/news/2012/01/01/example-article/"/>
     <id>http://blog.url.com/news/2012/01/01/example-article/</id>
     <published>2012-01-01T01:00:00+01:00</published>
-    <updated>2016-02-23T14:33:23+01:00</updated>
+    <updated>2016-03-14T16:29:25+01:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -57,7 +57,7 @@
 &lt;h3 id="heading-three"&gt;Heading three&lt;/h3&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;It was born out of frustration at the state of third-party libraries available in the Ruby ecosystem, namely their tendency to be written in the typical “idiomatic” Ruby way. For these reasons libraries belonging to the dryrb organisation try to follow a few basic principles.&lt;br&gt;
+&lt;p&gt;It was born out of frustration at the state of third-party libraries available in the Ruby ecosystem, namely their tendency to be written in the typical “idiomatic” Ruby way. For these reasons libraries belonging to the dry-rb organisation try to follow a few basic principles.&lt;br&gt;
 —Author&lt;/p&gt;
 &lt;/blockquote&gt;
 </content>
