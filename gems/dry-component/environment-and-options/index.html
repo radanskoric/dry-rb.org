@@ -1,0 +1,20 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta content="phone" media="(max-width: 480px)" name="breakpoint" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><title>Environment & Options</title><link href="/assets/stylesheets/site-2f70f4e9.css" rel="stylesheet" /><script src="/assets/javascripts/site-0d519fe1.js" async="true"></script></head><body><header><div class="content-wrap"><nav class="main-nav"><ul class="main-nav__list"><li class="main-nav__logo"><a href="/">Home</a></li><li><a href="/gems">Gems</a></li><li><a href="http://github.com/dry-rb">GitHub</a></li><li><a href="https://gitter.im/dry-rb/chat">Gitter</a></li></ul></nav><div class="intro-page"><h1>Environment & Options</h1></div></div></header><div class="row"><div class="content-wrap"><aside class="sidebar"><ul><li><h2>dry-component</h2><ul><li><a class="" href="/gems/dry-component/">Introduction</a><li><a class="" href="/gems/dry-component/container/">Container</a></li><li><a class="" href="/gems/dry-component/auto-import/">Auto-Import</a></li><li><a class="" href="/gems/dry-component/booting-a-dependency/">Booting a Dependency</a></li><li><a class="active" href="/gems/dry-component/environment-and-options/">Environment & Options</a></li></li></ul></li></ul></aside><article class="gem-article"><p>In most of the systems you need some kind of options for your runtime. Typically it&rsquo;s provided via ENV vars or a yaml file in development mode. <code>dry-component</code> has a built-in support for this.</p>
+
+<p>You can simply put a file under <code>#{root}/config/application.yml</code> and it will be loaded:</p>
+<pre class="syntax yaml"><code><span class="c1"># /my/app/config/application.yml</span>
+<span class="s">development</span><span class="pi">:</span>
+  <span class="s">foo</span><span class="pi">:</span> <span class="s1">'</span><span class="s">bar'</span>
+</code></pre>
+
+<p>Now let&rsquo;s configure our container for a specific env:</p>
+<pre class="syntax ruby"><code><span class="k">class</span> <span class="nc">Application</span> <span class="o">&lt;</span> <span class="no">Dry</span><span class="o">::</span><span class="no">Component</span><span class="o">::</span><span class="no">Container</span>
+  <span class="n">configure</span><span class="p">(</span><span class="s1">'development'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+    <span class="n">config</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="ss">:application</span> <span class="c1"># this is used to determine options file name</span>
+    <span class="n">config</span><span class="p">.</span><span class="nf">root</span> <span class="o">=</span> <span class="s1">'/my/app'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># now our application options are available</span>
+<span class="no">Application</span><span class="p">.</span><span class="nf">options</span><span class="p">.</span><span class="nf">foo</span> <span class="c1"># =&gt; "bar"</span>
+</code></pre>
+</article></div></div><footer><div class="content-wrap"><div class="footer__credits"><p>dry-rb is maintained by&nbsp;<a href="http://solnic.eu">@solnic</a>&nbsp;and&nbsp;<a href="https://github.com/AMHOL">@AMHOL</a>. This website was made by&nbsp;<a href="http://twitter.com/icelab">@icelab</a>. <br />Tweet your questions and suggestions to&nbsp;<a href="http://twitter.com/dry_rb">@dry_rb&nbsp;</a>and follow us for updates.</p></div><a class="btn-social" href="https://github.com/dry-rb">GitHub</a><a class="btn-social" href="https://twitter.com/dry_rb">Twitter</a><a class="btn-social" href="https://gitter.im/dry-rb/chat">Gitter</a></div></footer></body></html>
