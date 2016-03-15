@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta content="phone" media="(max-width: 480px)" name="breakpoint" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><title>Working With Schemas</title><link href="/assets/stylesheets/site-2f70f4e9.css" rel="stylesheet" /><script src="/assets/javascripts/site-0d519fe1.js" async="true"></script></head><body><header><div class="content-wrap"><nav class="main-nav"><ul class="main-nav__list"><li class="main-nav__logo"><a href="/">Home</a></li><li><a href="/">dry-rb</a></li><li><a href="/gems">Gems</a></li><li><a href="http://github.com/dry-rb">GitHub</a></li></ul></nav><div class="intro-page"><h1>Working With Schemas</h1></div></div></header><div class="row"><div class="content-wrap"><aside class="sidebar"><ul><li><h2>dry-validation</h2><ul><li><a class="" href="/gems/dry-validation/">Introduction</a><li><a class="" href="/gems/dry-validation/basics/">Basics</a><ul><li><a class="" href="/gems/dry-validation/basics/predicate-logic/">Predicate Logic</a></li><li><a class="" href="/gems/dry-validation/basics/macros/">Macros</a></li><li><a class="active" href="/gems/dry-validation/basics/working-with-schemas/">Working With Schemas</a></li></ul></li><li><a class="" href="/gems/dry-validation/custom-predicates/">Custom Predicates</a></li><li><a class="" href="/gems/dry-validation/optional-keys-and-values/">Optional Keys and Values</a></li><li><a class="" href="/gems/dry-validation/nested-data/">Nested Data</a></li><li><a class="" href="/gems/dry-validation/array-as-input/">Array As Input</a></li><li><a class="" href="/gems/dry-validation/reusing-schemas/">Reusing Schemas</a></li><li><a class="" href="/gems/dry-validation/forms/">Form Validation</a></li><li><a class="" href="/gems/dry-validation/high-level-rules/">High-level Rules</a></li><li><a class="" href="/gems/dry-validation/comparison-with-activerecord/">Comparison With ActiveRecord</a></li><li><a class="" href="/gems/dry-validation/error-messages/">Error Messages</a></li></li></ul></li></ul></aside><article class="gem-article"><p>A schema is an object which contains a list of rules that will be applied to its input when you call a schema. It returns a <code>result object</code> which provides an API to retrieve <code>error messages</code> and access to the validation <code>output</code>.</p>
+
+<p>Schema definition best practices:</p>
+
+<ul>
+<li>Be specific about the exact shape of the data, define all the keys that you expect to be present</li>
+<li>Specify optional keys too, even if you don&rsquo;t need additional rules to be applied to their values</li>
+<li>Specify type expectations for all the values!</li>
+<li>Use custom predicates to keep things concise when built-in predicates create too much noise</li>
+<li>Assign schema objects to constants for convenient access</li>
+</ul>
+
+<h3 id="calling-a-schema">Calling a Schema</h3>
+
+<p>Calling a schema will apply all its rules to the input. High-level rules defined with <code>rule</code> API are applied in a second step and they are guarded, which means if the values they depend on are not valid, nothing will crash and a high-level rule will not be applied.</p>
+
+<p>Example:</p>
+<pre class="syntax ruby"><code><span class="n">schema</span> <span class="o">=</span> <span class="no">Dry</span><span class="o">::</span><span class="no">Validation</span><span class="o">.</span><span class="no">Schema</span> <span class="k">do</span>
+  <span class="n">key</span><span class="p">(</span><span class="ss">:email</span><span class="p">).</span><span class="nf">required</span>
+  <span class="n">key</span><span class="p">(</span><span class="ss">:age</span><span class="p">).</span><span class="nf">required</span>
+<span class="k">end</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">schema</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="ss">email: </span><span class="s1">'jane@doe.org'</span><span class="p">,</span> <span class="ss">age: </span><span class="mi">21</span><span class="p">)</span>
+
+<span class="c1"># access validation output data</span>
+<span class="n">result</span><span class="p">.</span><span class="nf">output</span>
+<span class="c1"># =&gt; {:email=&gt;'jane@doe.org', :age=&gt;21}</span>
+
+<span class="c1"># check if all rules passed</span>
+<span class="n">result</span><span class="p">.</span><span class="nf">success?</span>
+<span class="c1"># =&gt; true</span>
+
+<span class="c1"># check if any of the rules failed</span>
+<span class="n">result</span><span class="p">.</span><span class="nf">failure?</span>
+<span class="c1"># =&gt; false</span>
+</code></pre>
+
+<h3 id="working-with-messages">Working With Messages</h3>
+
+<p>The result object returned by <code>Schema#call</code> provides an API to convert error objects to human-friendly messages.</p>
+<pre class="syntax ruby"><code><span class="n">result</span> <span class="o">=</span> <span class="n">schema</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="ss">email: </span><span class="kp">nil</span><span class="p">,</span> <span class="ss">age: </span><span class="mi">21</span><span class="p">)</span>
+
+<span class="c1"># get default messages</span>
+<span class="n">result</span><span class="p">.</span><span class="nf">messages</span>
+<span class="c1"># =&gt; {:email=&gt;['must be filled']}</span>
+
+<span class="c1"># get full messages</span>
+<span class="n">result</span><span class="p">.</span><span class="nf">messages</span><span class="p">(</span><span class="ss">full: </span><span class="kp">true</span><span class="p">)</span>
+<span class="c1"># =&gt; {:email=&gt;['email must be filled']}</span>
+
+<span class="c1"># get messages in another language</span>
+<span class="n">result</span><span class="p">.</span><span class="nf">messages</span><span class="p">(</span><span class="ss">locale: :pl</span><span class="p">)</span>
+<span class="c1"># =&gt; {:email=&gt;['musi być wypełniony']}</span>
+</code></pre>
+
+<blockquote>
+<p>Learn more about <a href="/gems/dry-validation/error-messages">error messages</a></p>
+</blockquote>
+</article></div></div><footer><div class="content-wrap"><div class="footer__credits"><p>dry-rb is maintained by&nbsp;<a href="http://solnic.eu">@solnic</a>&nbsp;and&nbsp;<a href="https://github.com/AMHOL">@AMHOL</a>. This website was made by&nbsp;<a href="http://twitter.com/icelab">@icelab</a>. <br />Tweet your questions and suggestions to&nbsp;<a href="http://twitter.com/dry_rb">@dry_rb&nbsp;</a>and follow us for updates.</p></div><a class="btn-social" href="https://github.com/dry-rb">GitHub</a><a class="btn-social" href="https://twitter.com/dry_rb">Twitter</a></div></footer></body></html>
