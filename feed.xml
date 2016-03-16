@@ -5,61 +5,108 @@
   <id>http://blog.url.com/news</id>
   <link href="http://blog.url.com/news"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2014-03-14T01:00:00+01:00</updated>
+  <updated>2016-03-16T01:00:00+01:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
   <entry>
-    <title>Example Article</title>
-    <link rel="alternate" href="http://blog.url.com/news/2014/03/14/example-article/"/>
-    <id>http://blog.url.com/news/2014/03/14/example-article/</id>
-    <published>2014-03-14T01:00:00+01:00</published>
-    <updated>2016-03-14T16:29:25+01:00</updated>
+    <title>Announcing dry-rb</title>
+    <link rel="alternate" href="http://blog.url.com/news/2016/03/16/announcing-dry-rb/"/>
+    <id>http://blog.url.com/news/2016/03/16/announcing-dry-rb/</id>
+    <published>2016-03-16T01:00:00+01:00</published>
+    <updated>2016-03-16T17:42:02+01:00</updated>
     <author>
       <name>Article Author</name>
     </author>
-    <content type="html">&lt;p&gt;This is an example article. You probably want to delete it and write your own articles! &lt;/p&gt;
+    <content type="html">&lt;p&gt;We are thrilled to announce the official launch of &lt;a href="https://github.com/dry-rb"&gt;dry-rb&lt;/a&gt; and this brand new website! The dry-rb organization was established on GitHub last year by Andy Holland. He created a couple of small and very useful gems, namely &lt;code&gt;dry-container&lt;/code&gt; and &lt;code&gt;dry-configurable&lt;/code&gt;. The organization has since grown very quickly, with more people joining the effort, and today we already have 9 gems released on RubyGems.org and more in the works.&lt;/p&gt;
 
-&lt;h2 id="heading-two-heading-one-has-been-used-in-the-page-title"&gt;Heading two (heading one has been used in the page title)&lt;/h2&gt;
+&lt;p&gt;dry-rb is here to help usher in a new phase of Ruby development. We value good encapsulation, reusability and non-intrusiveness. Our gems are small and focused on solving specific problems. They work with each other very well, and can also be used in existing projects.&lt;/p&gt;
 
-&lt;p&gt;Donec sed odio dui. &lt;code&gt;Cras justo odio&lt;/code&gt; dapibus ac facilisis in, egestas eget quam. Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. This is a &lt;a href="http://example.net/"&gt;link example&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="new-gem-releases"&gt;New gem releases&lt;/h2&gt;
 
-&lt;h3 id="heading-three"&gt;Heading three&lt;/h3&gt;
+&lt;p&gt;Apart from the release of this website, we&amp;rsquo;d like to announce big releases of &lt;a href="/gems/dry-validation"&gt;dry-validation&lt;/a&gt; and &lt;a href="/gems/dry-types"&gt;dry-types&lt;/a&gt;. Both gems went through major refactorings and come with many great new features, bug fixes and internal improvements.&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;It was born out of frustration at the state of third-party libraries available in the Ruby ecosystem, namely their tendency to be written in the typical “idiomatic” Ruby way. For these reasons libraries belonging to the dry-rb organisation try to follow a few basic principles.&lt;/p&gt;
+&lt;h3 id="dry-validation-0-7-0"&gt;dry-validation 0.7.0&lt;/h3&gt;
 
-&lt;p&gt;—Author&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;This release comes with a redesigned predicate logic engine, provided by dry-logic, and has lots of new features which make defining validation schemas very simple. The DSL is more concise and expressive: you can use convenient macros to reduce the boilerplate, use nested schemas which allow re-using existing schemas, and define high-level rules which depend on one or more values. We also have new interfaces for configuring external dependencies that a schema might need to apply its predicates.&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;List item 1&lt;/li&gt;
-&lt;li&gt;List item 2&lt;/li&gt;
-&lt;li&gt;List item 3&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Example Article</title>
-    <link rel="alternate" href="http://blog.url.com/news/2012/01/01/example-article/"/>
-    <id>http://blog.url.com/news/2012/01/01/example-article/</id>
-    <published>2012-01-01T01:00:00+01:00</published>
-    <updated>2016-03-14T16:29:25+01:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;This is an example article. You probably want to delete it and write your own articles! &lt;/p&gt;
+&lt;p&gt;Error messages have been improved too. You can now ask for full messages, which will include rule names, and you can provide translations for these rule names (works both with yaml and i18n translation backends).&lt;/p&gt;
 
-&lt;h2 id="heading-two-heading-one-has-been-used-in-the-page-title"&gt;Heading two (heading one has been used in the page title)&lt;/h2&gt;
+&lt;p&gt;The error messages hash is now simpler and works very well with nested structures, including arrays with error messages for individual elements.&lt;/p&gt;
 
-&lt;p&gt;Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;dry-validation&lt;/code&gt; remains very fast. Benchmarks show it&amp;rsquo;s ~2.5x faster than &lt;code&gt;ActiveMode::Validations&lt;/code&gt;. We&amp;rsquo;ll keep making it faster!&lt;/p&gt;
 
-&lt;h3 id="heading-three"&gt;Heading three&lt;/h3&gt;
+&lt;p&gt;For a complete list of changes please refer to the &lt;a href="https://github.com/dry-rb/dry-validation/blob/master/CHANGELOG.md#v070-2016-03-16"&gt;CHANGELOG&lt;/a&gt;.&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;It was born out of frustration at the state of third-party libraries available in the Ruby ecosystem, namely their tendency to be written in the typical “idiomatic” Ruby way. For these reasons libraries belonging to the dry-rb organisation try to follow a few basic principles.&lt;br&gt;
-—Author&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Here&amp;rsquo;s an example validation schema using new syntax:&lt;/p&gt;
+&lt;pre class="syntax ruby"&gt;&lt;code&gt;&lt;span class="nb"&gt;require&lt;/span&gt; &lt;span class="s1"&gt;'dry-validation'&lt;/span&gt;
+
+&lt;span class="no"&gt;UserSchema&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="no"&gt;Dry&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Validation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="no"&gt;Schema&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:email&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nf"&gt;required&lt;/span&gt;
+
+  &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:age&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nf"&gt;required&lt;/span&gt;
+
+  &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:address&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nf"&gt;schema&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:city&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nf"&gt;required&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;min_size?&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:street&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nf"&gt;required&lt;/span&gt;
+
+    &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:country&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nf"&gt;schema&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+      &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:name&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nf"&gt;required&lt;/span&gt;
+      &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:code&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nf"&gt;required&lt;/span&gt;
+    &lt;span class="k"&gt;end&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="no"&gt;UserSchema&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+  &lt;span class="ss"&gt;email: &lt;/span&gt;&lt;span class="s1"&gt;'jane@doe.org'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="ss"&gt;age: &lt;/span&gt;&lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="ss"&gt;address: &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="ss"&gt;city: &lt;/span&gt;&lt;span class="s1"&gt;'NY'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="ss"&gt;street: &lt;/span&gt;&lt;span class="s1"&gt;'Street 1'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="ss"&gt;country: &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="ss"&gt;name: &lt;/span&gt;&lt;span class="s1"&gt;''&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;code: &lt;/span&gt;&lt;span class="s1"&gt;'US'&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nf"&gt;messages&lt;/span&gt;
+&lt;span class="c1"&gt;# {:address=&amp;gt;{:city=&amp;gt;["size cannot be less than 3"], :country=&amp;gt;{:name=&amp;gt;["must be filled"]}}}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="dry-types-0-6-0"&gt;dry-types 0.6.0&lt;/h3&gt;
+
+&lt;p&gt;We renamed the former &lt;code&gt;dry-data&lt;/code&gt; gem to &lt;code&gt;dry-types&lt;/code&gt; and have released version 0.6.0. It went through internal refactoring to make composing types more flexible and simpler. This release also comes with nice new features, like support for default values in hash schemas and ability to pass a block to default values. These features make working with Struct and Value types simpler, as you can configure default values for attributes easily now.&lt;/p&gt;
+
+&lt;p&gt;For a complete list of changes please refer to the &lt;a href="https://github.com/dry-rb/dry-types/blob/master/CHANGELOG.md#v070-2016-03-16"&gt;CHANGELOG&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s an example Struct definition which uses these new features:&lt;/p&gt;
+&lt;pre class="syntax ruby"&gt;&lt;code&gt;&lt;span class="nb"&gt;require&lt;/span&gt; &lt;span class="s1"&gt;'dry-types'&lt;/span&gt;
+
+&lt;span class="k"&gt;module&lt;/span&gt; &lt;span class="nn"&gt;Types&lt;/span&gt;
+  &lt;span class="kp"&gt;include&lt;/span&gt; &lt;span class="no"&gt;Dry&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Types&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;module&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Post&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="no"&gt;Dry&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Types&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Struct&lt;/span&gt;
+  &lt;span class="n"&gt;constructor_type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:schema&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="no"&gt;Status&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="no"&gt;Types&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Strict&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;String&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;enum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'draft'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'published'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'deleted'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;default&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'draft'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="no"&gt;CreatedAt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="no"&gt;Types&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Strict&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Time&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;default&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="no"&gt;Time&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;now&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+
+  &lt;span class="n"&gt;attribute&lt;/span&gt; &lt;span class="ss"&gt;:status&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="no"&gt;Status&lt;/span&gt;
+  &lt;span class="n"&gt;attribute&lt;/span&gt; &lt;span class="ss"&gt;:title&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="no"&gt;Types&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Strict&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;String&lt;/span&gt;
+  &lt;span class="n"&gt;attribute&lt;/span&gt; &lt;span class="ss"&gt;:body&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="no"&gt;Types&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Strict&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;String&lt;/span&gt;
+  &lt;span class="n"&gt;attribute&lt;/span&gt; &lt;span class="ss"&gt;:created_at&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="no"&gt;CreatedAt&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="no"&gt;Post&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;new&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;title: &lt;/span&gt;&lt;span class="s1"&gt;'Hello World'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;body: &lt;/span&gt;&lt;span class="s1"&gt;'some text'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# =&amp;gt; #&amp;lt;Post:0x007fd042838320 @status="draft", @title="Hello World", @body="some text", @created_at=2016-03-16 11:28:41 +0100&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id="future-plans"&gt;Future plans&lt;/h2&gt;
+
+&lt;p&gt;We&amp;rsquo;ll continue growing dry-rb, improving the existing gems and adding new ones. Please try out our already released &lt;a href="/gems"&gt;gems&lt;/a&gt; and let us know what you think.&lt;/p&gt;
+
+&lt;p&gt;If you have any issues, do not hesitate to &lt;a href="https://gitter.im/dry-rb/chat"&gt;talk to us&lt;/a&gt; or report an issue on GitHub.&lt;/p&gt;
 </content>
   </entry>
 </feed>
