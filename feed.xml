@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.url.com/news/2016/03/16/announcing-dry-rb/"/>
     <id>http://blog.url.com/news/2016/03/16/announcing-dry-rb/</id>
     <published>2016-03-16T01:00:00+01:00</published>
-    <updated>2016-03-16T17:42:02+01:00</updated>
+    <updated>2016-03-16T18:01:16+01:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -34,7 +34,7 @@
 
 &lt;p&gt;The error messages hash is now simpler and works very well with nested structures, including arrays with error messages for individual elements.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;dry-validation&lt;/code&gt; remains very fast. Benchmarks show it&amp;rsquo;s ~2.5x faster than &lt;code&gt;ActiveMode::Validations&lt;/code&gt;. We&amp;rsquo;ll keep making it faster!&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;dry-validation&lt;/code&gt; remains very fast. Benchmarks show it&amp;rsquo;s ~2.5x faster than &lt;code&gt;ActiveModel::Validations&lt;/code&gt;. We&amp;rsquo;ll keep making it faster!&lt;/p&gt;
 
 &lt;p&gt;For a complete list of changes please refer to the &lt;a href="https://github.com/dry-rb/dry-validation/blob/master/CHANGELOG.md#v070-2016-03-16"&gt;CHANGELOG&lt;/a&gt;.&lt;/p&gt;
 
