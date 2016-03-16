@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Blog Name</title>
-  <subtitle>Blog subtitle</subtitle>
-  <id>http://blog.url.com/news</id>
-  <link href="http://blog.url.com/news"/>
-  <link href="http://blog.url.com/feed.xml" rel="self"/>
+  <title>dry-rb news</title>
+  <id>http://dry-rb.org/news</id>
+  <link href="http://dry-rb.org/news"/>
+  <link href="http://dry-rb.org/feed.xml" rel="self"/>
   <updated>2016-03-16T01:00:00+01:00</updated>
   <author>
-    <name>Blog Author</name>
+    <name>dry-rb community</name>
   </author>
   <entry>
     <title>Announcing dry-rb</title>
-    <link rel="alternate" href="http://blog.url.com/news/2016/03/16/announcing-dry-rb/"/>
-    <id>http://blog.url.com/news/2016/03/16/announcing-dry-rb/</id>
+    <link rel="alternate" href="http://dry-rb.org/news/2016/03/16/announcing-dry-rb/"/>
+    <id>http://dry-rb.org/news/2016/03/16/announcing-dry-rb/</id>
     <published>2016-03-16T01:00:00+01:00</published>
     <updated>2016-03-16T18:01:16+01:00</updated>
     <author>
-      <name>Article Author</name>
+      <name>solnic</name>
     </author>
     <content type="html">&lt;p&gt;We are thrilled to announce the official launch of &lt;a href="https://github.com/dry-rb"&gt;dry-rb&lt;/a&gt; and this brand new website! The dry-rb organization was established on GitHub last year by Andy Holland. He created a couple of small and very useful gems, namely &lt;code&gt;dry-container&lt;/code&gt; and &lt;code&gt;dry-configurable&lt;/code&gt;. The organization has since grown very quickly, with more people joining the effort, and today we already have 9 gems released on RubyGems.org and more in the works.&lt;/p&gt;
 
