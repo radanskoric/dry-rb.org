@@ -8,7 +8,7 @@ ga('send', 'pageview');</script></head><body><header><div class="content-wrap"><
 
 <p>All types support constraints API, but not all constraints are suitable for a particular primitive, it&rsquo;s up to you to set up constraints that make sense.</p>
 
-<p>Under the hood it uses <a href="/gems/logic"><code>dry-logic</code></a> and all of its predicates are supported.</p>
+<p>Under the hood it uses <a href="/gems/dry-logic"><code>dry-logic</code></a> and all of its predicates are supported.</p>
 <pre class="syntax ruby"><code><span class="n">string</span> <span class="o">=</span> <span class="no">Types</span><span class="o">::</span><span class="no">Strict</span><span class="o">::</span><span class="no">String</span><span class="p">.</span><span class="nf">constrained</span><span class="p">(</span><span class="ss">min_size: </span><span class="mi">3</span><span class="p">)</span>
 
 <span class="n">string</span><span class="p">[</span><span class="s1">'foo'</span><span class="p">]</span>
