@@ -27,7 +27,7 @@ ga('send', 'pageview');</script></head><body><header><div class="content-wrap"><
 
 <span class="n">schema</span> <span class="o">=</span> <span class="no">Dry</span><span class="o">::</span><span class="no">Validation</span><span class="o">.</span><span class="no">Schema</span> <span class="k">do</span>
   <span class="n">configure</span> <span class="k">do</span>
-    <span class="n">config</span><span class="p">.</span><span class="nf">predicates</span> <span class="o">=</span> <span class="no">MyPredicates</span>
+    <span class="n">predicates</span><span class="p">(</span><span class="no">MyPredicates</span><span class="p">)</span>
   <span class="k">end</span>
 
   <span class="n">required</span><span class="p">(</span><span class="ss">:email</span><span class="p">).</span><span class="nf">filled</span><span class="p">(</span><span class="ss">:str?</span><span class="p">,</span> <span class="ss">:email?</span><span class="p">)</span>
