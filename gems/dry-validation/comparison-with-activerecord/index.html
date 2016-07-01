@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta content="phone" media="(max-width: 480px)" name="breakpoint" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><link href="/feed.xml" rel="alternate" title="dry-rb news" type="application/atom+xml" /><link href="/images/favicon-651cfa16.png" rel="icon" /><!--[if IE]><link href="/images/favicon.ico" rel="shortcut icon" /><![endif]--><title>dry-rb - dry-validation - Comparison With ActiveRecord</title><link href="/assets/stylesheets/site-65fc5433.css" rel="stylesheet" /><script src="/assets/javascripts/site-0d519fe1.js" async="true"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta content="phone" media="(max-width: 480px)" name="breakpoint" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><link href="/feed.xml" rel="alternate" title="dry-rb news" type="application/atom+xml" /><link href="/images/favicon-651cfa16.png" rel="icon" /><!--[if IE]><link href="/images/favicon.ico" rel="shortcut icon" /><![endif]--><title>dry-rb - dry-validation - Comparison With ActiveRecord</title><link href="/assets/stylesheets/site-6ca01a5b.css" rel="stylesheet" /><script src="/assets/javascripts/site-0d519fe1.js" async="true"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -15,8 +15,8 @@ For example:</p>
 <pre class="syntax ruby"><code><span class="nb">require</span> <span class="s1">'dry-validation'</span>
 
 <span class="k">class</span> <span class="nc">Schema</span> <span class="o">&lt;</span> <span class="no">Dry</span><span class="o">::</span><span class="no">Validation</span><span class="o">::</span><span class="no">Schema</span>
-  <span class="n">key</span><span class="p">(</span><span class="ss">:email</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">email</span><span class="o">|</span> <span class="n">email</span><span class="p">.</span><span class="nf">filled?</span> <span class="p">}</span>
-  <span class="n">key</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="nb">name</span><span class="p">.</span><span class="nf">filled?</span> <span class="p">}</span>
+  <span class="n">required</span><span class="p">(</span><span class="ss">:email</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">email</span><span class="o">|</span> <span class="n">email</span><span class="p">.</span><span class="nf">filled?</span> <span class="p">}</span>
+  <span class="n">required</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="nb">name</span><span class="p">.</span><span class="nf">filled?</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre>
 
@@ -24,8 +24,8 @@ For example:</p>
 <pre class="syntax ruby"><code><span class="nb">require</span> <span class="s1">'dry-validation'</span>
 
 <span class="k">class</span> <span class="nc">Schema</span> <span class="o">&lt;</span> <span class="no">Dry</span><span class="o">::</span><span class="no">Validation</span><span class="o">::</span><span class="no">Schema</span>
-  <span class="n">key</span><span class="p">(</span><span class="ss">:email</span><span class="p">,</span> <span class="o">&amp;</span><span class="ss">:filled?</span><span class="p">)</span>
-  <span class="n">key</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="o">&amp;</span><span class="ss">:filled?</span><span class="p">)</span>
+  <span class="n">required</span><span class="p">(</span><span class="ss">:email</span><span class="p">,</span> <span class="o">&amp;</span><span class="ss">:filled?</span><span class="p">)</span>
+  <span class="n">required</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="o">&amp;</span><span class="ss">:filled?</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre>
 
@@ -33,7 +33,7 @@ For example:</p>
 
 <p>Active Record: <code>validates :email, presence: true, format: { with: EMAIL_REGEX }</code></p>
 
-<p>Dry Validation: <code>key(:email) { |email| email.filled? &amp; email.format?(EMAIL_REGEX) }</code></p>
+<p>Dry Validation: <code>required(:email) { |email| email.filled? &amp; email.format?(EMAIL_REGEX) }</code></p>
 
 <h2 id="2-validation-helpers">2. Validation Helpers</h2>
 
@@ -47,11 +47,11 @@ For example:</p>
 </thead><tbody>
 <tr>
 <td><code>validates :attr, acceptance: true</code></td>
-<td>`key(:attr){</td>
+<td>`required(:attr){</td>
 </tr>
 <tr>
 <td><code>validates :attr, acceptance: { accept: &#39;yes&#39; }</code></td>
-<td>`key(:attr){</td>
+<td>`required(:attr){</td>
 </tr>
 </tbody></table>
 
@@ -93,7 +93,7 @@ For example:</p>
 </thead><tbody>
 <tr>
 <td><code>validates :attr, exclusion: { in: array }</code></td>
-<td>`key(:attr){</td>
+<td>`required(:attr){</td>
 </tr>
 </tbody></table>
 
@@ -111,11 +111,11 @@ For example:</p>
 </thead><tbody>
 <tr>
 <td><code>validates :attr, format: { with: regex }</code></td>
-<td>`key(:attr) {</td>
+<td>`required(:attr) {</td>
 </tr>
 <tr>
 <td><code>validates :attr, format: { without: regex }</code></td>
-<td>`key(:attr) {</td>
+<td>`required(:attr) {</td>
 </tr>
 </tbody></table>
 
@@ -129,7 +129,7 @@ For example:</p>
 </thead><tbody>
 <tr>
 <td><code>validates :attr, inclusion: { in: array }</code></td>
-<td>`key(:attr) {</td>
+<td>`required(:attr) {</td>
 </tr>
 </tbody></table>
 
@@ -147,19 +147,19 @@ For example:</p>
 </thead><tbody>
 <tr>
 <td><code>validates :attr, length: { minimum: int }</code></td>
-<td>`key(:attr) {</td>
+<td>`required(:attr) {</td>
 </tr>
 <tr>
 <td><code>validates :attr, length: { maximum: int }</code></td>
-<td>`key(:attr) {</td>
+<td>`required(:attr) {</td>
 </tr>
 <tr>
 <td><code>validates :attr, length: { in: range }</code></td>
-<td>`key(:attr) {</td>
+<td>`required(:attr) {</td>
 </tr>
 <tr>
 <td><code>validates :attr, length: { is: int }</code></td>
-<td>`key(:attr) {</td>
+<td>`required(:attr) {</td>
 </tr>
 </tbody></table>
 
@@ -194,31 +194,31 @@ end
 </thead><tbody>
 <tr>
 <td><code>validates :name, numericality: true</code></td>
-<td>`key(:attr){</td>
+<td>`required(:attr){</td>
 </tr>
 <tr>
 <td><code>validates :attr, numericality: { only_integer: true }</code></td>
-<td>`key(:attr){</td>
+<td>`required(:attr){</td>
 </tr>
 <tr>
 <td><code>validates :attr, numericality: { greater_than: int }</code></td>
-<td>`key(:attr){</td>
+<td>`required(:attr){</td>
 </tr>
 <tr>
 <td><code>validates :attr, numericality: { greater_than_or_equal_to: int }</code></td>
-<td>`key(:attr){</td>
+<td>`required(:attr){</td>
 </tr>
 <tr>
 <td><code>validates :attr, numericality: { less_than: int }</code></td>
-<td>`key(:attr){</td>
+<td>`required(:attr){</td>
 </tr>
 <tr>
 <td><code>validates :attr, numericality: { less_than_or_equal_to: int }</code></td>
-<td>`key(:attr){</td>
+<td>`required(:attr){</td>
 </tr>
 <tr>
 <td><code>validates :attr, numericality: { equal_to: int }</code></td>
-<td>`key(:attr){</td>
+<td>`required(:attr){</td>
 </tr>
 <tr>
 <td><code>validates :attr, numericality: { odd: int }</code></td>
@@ -250,7 +250,7 @@ end
 </thead><tbody>
 <tr>
 <td><code>validates :attr, presence: true</code></td>
-<td>`key(:attr) {</td>
+<td>`required(:attr) {</td>
 </tr>
 </tbody></table>
 
@@ -263,7 +263,7 @@ end
 <h4 id="booleans">Booleans</h4>
 
 <p>If you want to validate the presence of a boolean field (e.g. true or false) you should use the built in predicate <code>.bool?</code>.<br>
-E.g. <code>key(:attr) { |attr| attr.bool? }</code></p>
+E.g. <code>required(:attr) { |attr| attr.bool? }</code></p>
 
 <h3 id="2-10-absence">2.10 absence</h3>
 
@@ -275,7 +275,7 @@ E.g. <code>key(:attr) { |attr| attr.bool? }</code></p>
 </thead><tbody>
 <tr>
 <td><code>validates :attr, absence: true</code></td>
-<td>`key(:attr) {</td>
+<td>`required(:attr) {</td>
 </tr>
 </tbody></table>
 
@@ -300,7 +300,7 @@ E.g. <code>key(:attr) { |attr| attr.bool? }</code></p>
 
 <p>To validate the absence of a boolean field (e.g. not true or false) you should use:</p>
 
-<p><code>key(:attr) { |attr| attr.exclusion?([true, false]) }</code></p>
+<p><code>required(:attr) { |attr| attr.exclusion?([true, false]) }</code></p>
 
 <h3 id="2-11-uniqueness">2.11 uniqueness</h3>
 
@@ -320,7 +320,7 @@ E.g. <code>key(:attr) { |attr| attr.bool? }</code></p>
 
 <p><strong>Active Record:</strong> <code>validates :attr, length: { minimum: int, allow_nil: true }</code></p>
 
-<p><strong>Dry Validation:</strong> <code>key(:attr) { |attr| attr.none? | attr.min_size?(int) }</code></p>
+<p><strong>Dry Validation:</strong> <code>required(:attr) { |attr| attr.none? | attr.min_size?(int) }</code></p>
 
 <h4 id="3-2-allow_blank">3.2  <code>:allow_blank</code></h4>
 
@@ -328,7 +328,7 @@ E.g. <code>key(:attr) { |attr| attr.bool? }</code></p>
 
 <p><strong>Active Record:</strong> <code>validates :attr, length: { minimum: int, allow_blank: true }</code></p>
 
-<p><strong>Dry Validation:</strong> <code>key(:attr) { |attr| attr.empty? | attr.min_size?(int) }</code></p>
+<p><strong>Dry Validation:</strong> <code>required(:attr) { |attr| attr.empty? | attr.min_size?(int) }</code></p>
 
 <h4 id="3-3-message">3.3 <code>:message</code></h4>
 
@@ -353,8 +353,8 @@ For example:</p>
 <p>To achieve this in Dry Validation you will need to create a custom rule.</p>
 
 <p>.1. Initially we declare a rule for each of the attributes we need to reference</p>
-<pre class="syntax ruby"><code><span class="n">key</span><span class="p">(</span><span class="ss">:payment_type</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">payment_type</span><span class="o">|</span> <span class="n">payment_type</span><span class="p">.</span><span class="nf">inclusion?</span><span class="p">([</span><span class="s2">"card"</span><span class="p">,</span> <span class="s2">"cash"</span><span class="p">,</span> <span class="s2">"cheque"</span><span class="p">])</span> <span class="p">}</span>
-<span class="n">key</span><span class="p">(</span><span class="ss">:card_number</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">card_number</span><span class="o">|</span> <span class="n">card_number</span><span class="p">.</span><span class="nf">none?</span> <span class="o">|</span> <span class="n">card_number</span><span class="p">.</span><span class="nf">filled?</span> <span class="p">}</span>
+<pre class="syntax ruby"><code><span class="n">required</span><span class="p">(</span><span class="ss">:payment_type</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">payment_type</span><span class="o">|</span> <span class="n">payment_type</span><span class="p">.</span><span class="nf">inclusion?</span><span class="p">([</span><span class="s2">"card"</span><span class="p">,</span> <span class="s2">"cash"</span><span class="p">,</span> <span class="s2">"cheque"</span><span class="p">])</span> <span class="p">}</span>
+<span class="n">required</span><span class="p">(</span><span class="ss">:card_number</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">card_number</span><span class="o">|</span> <span class="n">card_number</span><span class="p">.</span><span class="nf">none?</span> <span class="o">|</span> <span class="n">card_number</span><span class="p">.</span><span class="nf">filled?</span> <span class="p">}</span>
 </code></pre>
 
 <p>.2. Declare a custom predicate to check if <code>payment_type == &#39;card&#39;</code></p>
@@ -370,8 +370,8 @@ For example:</p>
 </code></pre>
 
 <p>Put it all together and you get:</p>
-<pre class="syntax ruby"><code><span class="n">key</span><span class="p">(</span><span class="ss">:payment_type</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">payment_type</span><span class="o">|</span> <span class="n">payment_type</span><span class="p">.</span><span class="nf">inclusion?</span><span class="p">([</span><span class="s2">"card"</span><span class="p">,</span> <span class="s2">"cash"</span><span class="p">,</span> <span class="s2">"cheque"</span><span class="p">])</span> <span class="p">}</span>
-<span class="n">key</span><span class="p">(</span><span class="ss">:card_number</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">card_number</span><span class="o">|</span> <span class="n">card_number</span><span class="p">.</span><span class="nf">none?</span> <span class="o">|</span> <span class="n">card_number</span><span class="p">.</span><span class="nf">filled?</span> <span class="p">}</span>
+<pre class="syntax ruby"><code><span class="n">required</span><span class="p">(</span><span class="ss">:payment_type</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">payment_type</span><span class="o">|</span> <span class="n">payment_type</span><span class="p">.</span><span class="nf">inclusion?</span><span class="p">([</span><span class="s2">"card"</span><span class="p">,</span> <span class="s2">"cash"</span><span class="p">,</span> <span class="s2">"cheque"</span><span class="p">])</span> <span class="p">}</span>
+<span class="n">required</span><span class="p">(</span><span class="ss">:card_number</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">card_number</span><span class="o">|</span> <span class="n">card_number</span><span class="p">.</span><span class="nf">none?</span> <span class="o">|</span> <span class="n">card_number</span><span class="p">.</span><span class="nf">filled?</span> <span class="p">}</span>
 
 <span class="n">rule</span><span class="p">(</span><span class="ss">:require_card_number</span><span class="p">)</span> <span class="k">do</span>
   <span class="n">rule</span><span class="p">(</span><span class="ss">:payment_type</span><span class="p">).</span><span class="nf">paid_with_card?</span> <span class="o">&gt;</span> <span class="n">rule</span><span class="p">(</span><span class="ss">:card_number</span><span class="p">).</span>

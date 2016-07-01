@@ -13,11 +13,11 @@
     <link rel="alternate" href="http://dry-rb.org/news/2016/04/07/dry-transaction-0-6-brings-powerful-new-support-for-custom-step-adapters/"/>
     <id>http://dry-rb.org/news/2016/04/07/dry-transaction-0-6-brings-powerful-new-support-for-custom-step-adapters/</id>
     <published>2016-04-07T02:00:00+02:00</published>
-    <updated>2016-04-07T10:25:58+02:00</updated>
+    <updated>2016-07-01T16:30:21+02:00</updated>
     <author>
       <name>timriley</name>
     </author>
-    <content type="html">&lt;p&gt;&lt;a href="http://dry-rb.org/gems/dry-transaction"&gt;dry-transaction&lt;/a&gt; is dry-rb&amp;rsquo;s answer to modelling complex business transactions in your applicartions. With dry-transaction, you can arrange multiple processing operations into a linear pipeline, with the output of each step becoming the input of the next. dry-transaction also elevates error handling to a first-class concern. Any error will halt the flow of operations, and you have powerful APIs for matching and acting on errors.&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;a href="http://dry-rb.org/gems/dry-transaction"&gt;dry-transaction&lt;/a&gt; is dry-rb&amp;rsquo;s answer to modelling complex business transactions in your applications. With dry-transaction, you can arrange multiple processing operations into a linear pipeline, with the output of each step becoming the input of the next. dry-transaction also elevates error handling to a first-class concern. Any error will halt the flow of operations, and you have powerful APIs for matching and acting on errors.&lt;/p&gt;
 
 &lt;p&gt;dry-transaction 0.6.0 is out today, and it brings a powerful new feature to your application&amp;rsquo;s business transactions: support for defining your own custom step adapters. This allows you to encode powerful application-specific behaviours into  steps that can be invoked with just a single word inside your transaction definitions.&lt;/p&gt;
 
@@ -77,7 +77,7 @@
     <link rel="alternate" href="http://dry-rb.org/news/2016/03/31/new-releases-of-dry-types-and-dry-validation/"/>
     <id>http://dry-rb.org/news/2016/03/31/new-releases-of-dry-types-and-dry-validation/</id>
     <published>2016-03-31T02:00:00+02:00</published>
-    <updated>2016-03-31T14:26:31+02:00</updated>
+    <updated>2016-04-07T11:44:40+02:00</updated>
     <author>
       <name>solnic</name>
     </author>
@@ -264,7 +264,7 @@
     <link rel="alternate" href="http://dry-rb.org/news/2016/03/16/announcing-dry-rb/"/>
     <id>http://dry-rb.org/news/2016/03/16/announcing-dry-rb/</id>
     <published>2016-03-16T01:00:00+01:00</published>
-    <updated>2016-03-22T10:33:30+01:00</updated>
+    <updated>2016-04-07T11:44:40+02:00</updated>
     <author>
       <name>solnic</name>
     </author>
