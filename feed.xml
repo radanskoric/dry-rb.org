@@ -13,7 +13,7 @@
     <link rel="alternate" href="http://dry-rb.org/news/2016/07/01/dry-validation-0-8-0-released/"/>
     <id>http://dry-rb.org/news/2016/07/01/dry-validation-0-8-0-released/</id>
     <published>2016-07-01T02:00:00+02:00</published>
-    <updated>2016-07-01T18:32:11+02:00</updated>
+    <updated>2016-07-01T18:34:34+02:00</updated>
     <author>
       <name>solnic</name>
     </author>
@@ -50,7 +50,7 @@ bundle install
 
 &lt;p&gt;We have refined existing macros and added a couple of new ones to allow rule compositions which were not possible before.&lt;/p&gt;
 
-&lt;p&gt;The new &lt;code&gt;filled&lt;/code&gt; (which replaces &lt;code&gt;required&lt;/code&gt;) and &lt;code&gt;maybe&lt;/code&gt; now support blocks too, and both are based on a simpler, new macro called &lt;code&gt;value&lt;/code&gt;. The &lt;code&gt;key&lt;/code&gt; macro has been renamed to &lt;code&gt;required&lt;/code&gt; which makes it easier to understand the difference between defining required or optional keys and rules for their values.&lt;/p&gt;
+&lt;p&gt;The new &lt;code&gt;filled&lt;/code&gt; macro (which replaces &lt;code&gt;required&lt;/code&gt;) and the &lt;code&gt;maybe&lt;/code&gt; macro now support blocks too, and both are based on a simpler, new macro called &lt;code&gt;value&lt;/code&gt;. The &lt;code&gt;key&lt;/code&gt; macro has been renamed to &lt;code&gt;required&lt;/code&gt; which makes it easier to understand the difference between defining required or optional keys and rules for their values.&lt;/p&gt;
 
 &lt;p&gt;Here’s an example:&lt;/p&gt;
 &lt;pre class="syntax ruby"&gt;&lt;code&gt;&lt;span class="no"&gt;Dry&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Validation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="no"&gt;Schema&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;

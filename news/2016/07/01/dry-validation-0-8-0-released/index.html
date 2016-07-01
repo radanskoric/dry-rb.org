@@ -37,7 +37,7 @@ bundle install
 
 <p>We have refined existing macros and added a couple of new ones to allow rule compositions which were not possible before.</p>
 
-<p>The new <code>filled</code> (which replaces <code>required</code>) and <code>maybe</code> now support blocks too, and both are based on a simpler, new macro called <code>value</code>. The <code>key</code> macro has been renamed to <code>required</code> which makes it easier to understand the difference between defining required or optional keys and rules for their values.</p>
+<p>The new <code>filled</code> macro (which replaces <code>required</code>) and the <code>maybe</code> macro now support blocks too, and both are based on a simpler, new macro called <code>value</code>. The <code>key</code> macro has been renamed to <code>required</code> which makes it easier to understand the difference between defining required or optional keys and rules for their values.</p>
 
 <p>Here’s an example:</p>
 <pre class="syntax ruby"><code><span class="no">Dry</span><span class="o">::</span><span class="no">Validation</span><span class="o">.</span><span class="no">Schema</span> <span class="k">do</span>
