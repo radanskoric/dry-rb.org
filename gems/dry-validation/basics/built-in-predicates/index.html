@@ -102,9 +102,9 @@ ga('send', 'pageview');</script></head><body><header><div class="content-wrap"><
   <span class="k">end</span>
 
   <span class="n">it</span> <span class="s1">'with regular ruby'</span> <span class="k">do</span>
-    <span class="n">assert</span> <span class="o">!</span><span class="p">{</span><span class="ss">sample: </span><span class="s2">""</span><span class="p">}[</span><span class="ss">:sample</span><span class="p">].</span><span class="nf">empty?</span>
-    <span class="n">assert</span> <span class="o">!</span><span class="p">{</span><span class="ss">sample: </span><span class="p">[]}[</span><span class="ss">:sample</span><span class="p">].</span><span class="nf">empty?</span>
-    <span class="n">assert</span> <span class="o">!</span><span class="p">{</span><span class="ss">sample: </span><span class="p">{}}[</span><span class="ss">:sample</span><span class="p">].</span><span class="nf">empty?</span>
+    <span class="n">assert</span> <span class="p">{</span><span class="ss">sample: </span><span class="s2">""</span><span class="p">}[</span><span class="ss">:sample</span><span class="p">].</span><span class="nf">empty?</span>
+    <span class="n">assert</span> <span class="p">{</span><span class="ss">sample: </span><span class="p">[]}[</span><span class="ss">:sample</span><span class="p">].</span><span class="nf">empty?</span>
+    <span class="n">assert</span> <span class="p">{</span><span class="ss">sample: </span><span class="p">{}}[</span><span class="ss">:sample</span><span class="p">].</span><span class="nf">empty?</span>
   <span class="k">end</span>
 
   <span class="n">it</span> <span class="s1">'with dry-validation'</span> <span class="k">do</span>
