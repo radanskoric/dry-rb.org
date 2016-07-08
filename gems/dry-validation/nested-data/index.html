@@ -40,6 +40,29 @@ ga('send', 'pageview');</script></head><body><header><div class="content-wrap"><
 <span class="c1"># }</span>
 </code></pre>
 
+<h2 id="nested-maybe-hash">Nested Maybe Hash</h2>
+
+<p>If a nested hash could be nil, simply use <code>maybe</code> macro with a block:</p>
+<pre class="syntax ruby"><code><span class="nb">require</span> <span class="s1">'dry-validation'</span>
+
+<span class="n">schema</span> <span class="o">=</span> <span class="no">Dry</span><span class="o">::</span><span class="no">Validation</span><span class="o">.</span><span class="no">Schema</span> <span class="k">do</span>
+  <span class="n">required</span><span class="p">(</span><span class="ss">:address</span><span class="p">).</span><span class="nf">maybe</span> <span class="k">do</span>
+    <span class="n">schema</span> <span class="k">do</span>
+      <span class="n">required</span><span class="p">(</span><span class="ss">:city</span><span class="p">).</span><span class="nf">filled</span><span class="p">(</span><span class="n">min_size?</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
+
+      <span class="n">required</span><span class="p">(</span><span class="ss">:street</span><span class="p">).</span><span class="nf">filled</span>
+
+      <span class="n">required</span><span class="p">(</span><span class="ss">:country</span><span class="p">).</span><span class="nf">schema</span> <span class="k">do</span>
+        <span class="n">required</span><span class="p">(</span><span class="ss">:name</span><span class="p">).</span><span class="nf">filled</span>
+        <span class="n">required</span><span class="p">(</span><span class="ss">:code</span><span class="p">).</span><span class="nf">filled</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">schema</span><span class="o">.</span><span class="p">(</span><span class="ss">address: </span><span class="kp">nil</span><span class="p">).</span><span class="nf">success?</span> <span class="c1"># true</span>
+</code></pre>
+
 <h3 id="nested-array">Nested Array</h3>
 
 <p>You can use <code>each</code> macro for validating each element in an array:</p>

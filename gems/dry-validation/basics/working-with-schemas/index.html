@@ -14,6 +14,7 @@ ga('send', 'pageview');</script></head><body><header><div class="content-wrap"><
 <li>Specify type expectations for all the values!</li>
 <li>Use custom predicates to keep things concise when built-in predicates create too much noise</li>
 <li>Assign schema objects to constants for convenient access</li>
+<li>Define a base schema for your application with common configuration</li>
 </ul>
 
 <h3 id="calling-a-schema">Calling a Schema</h3>
@@ -39,6 +40,28 @@ ga('send', 'pageview');</script></head><body><header><div class="content-wrap"><
 <span class="c1"># check if any of the rules failed</span>
 <span class="n">result</span><span class="p">.</span><span class="nf">failure?</span>
 <span class="c1"># =&gt; false</span>
+</code></pre>
+
+<h3 id="defining-base-schema-class">Defining Base Schema Class</h3>
+<pre class="syntax ruby"><code><span class="k">class</span> <span class="nc">AppSchema</span> <span class="o">&lt;</span> <span class="no">Dry</span><span class="o">::</span><span class="no">Validation</span><span class="o">::</span><span class="no">Schema</span>
+  <span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+    <span class="n">config</span><span class="p">.</span><span class="nf">messages_file</span> <span class="o">=</span> <span class="s1">'/my/app/config/locales/en.yml'</span>
+    <span class="n">config</span><span class="p">.</span><span class="nf">messages</span> <span class="o">=</span> <span class="ss">:i18n</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">email?</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="kp">true</span>
+  <span class="k">end</span>
+
+  <span class="n">define!</span> <span class="k">do</span>
+    <span class="c1"># define common rules, if any</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># now you can build other schemas on top of the base one:</span>
+<span class="no">Dry</span><span class="o">::</span><span class="no">Validation</span><span class="o">.</span><span class="no">Schema</span><span class="p">(</span><span class="no">AppSchema</span><span class="p">)</span> <span class="k">do</span>
+  <span class="c1"># define your rules</span>
+<span class="k">end</span>
 </code></pre>
 
 <h3 id="working-with-messages">Working With Messages</h3>
